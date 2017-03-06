@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.wearable.view.drawer.WearableDrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawerLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical">
+
+        <android.support.wearable.view.BoxInsetLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_box="all">
+
+                <EditText
+                    android:id="@+id/editText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:background="@null"
+                    android:gravity="center"
+                    android:text="#000000" />
+
+                <SeekBar
+                    android:id="@+id/red"
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:max="255" />
+
+                <SeekBar
+                    android:id="@+id/blue"
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:max="255" />
+
+                <SeekBar
+                    android:id="@+id/green"
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:max="255" />
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="64dp" />
+
+            </LinearLayout>
+
+        </android.support.wearable.view.BoxInsetLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+    <android.support.wearable.view.drawer.WearableActionDrawer
+        android:id="@+id/actionDrawer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:peek_view="@+id/action_done">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp" />
+
+        <LinearLayout
+            android:id="@+id/action_done"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:background="?android:selectableItemBackground"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:orientation="horizontal">
+
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/imageView"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                app:srcCompat="@drawable/ic_done" />
+
+        </LinearLayout>
+
+    </android.support.wearable.view.drawer.WearableActionDrawer>
+
+</android.support.wearable.view.drawer.WearableDrawerLayout>
