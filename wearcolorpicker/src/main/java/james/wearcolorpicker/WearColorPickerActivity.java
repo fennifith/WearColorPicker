@@ -2,6 +2,7 @@ package james.wearcolorpicker;
 
 import android.animation.ValueAnimator;
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
@@ -146,6 +147,9 @@ public class WearColorPickerActivity extends Activity {
         findViewById(R.id.action_done).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.putExtra(EXTRA_COLOR, color);
+                setResult(RESULT_OK, intent);
                 finish();
             }
         });
@@ -166,6 +170,10 @@ public class WearColorPickerActivity extends Activity {
         blue.setProgress(Color.blue(color));
         green.setProgress(Color.green(color));
         setDark(ColorUtils.isColorDark(color));
+
+        Intent intent = new Intent();
+        intent.putExtra(EXTRA_COLOR, color);
+        setResult(RESULT_CANCELED, intent);
     }
 
     private void setDark(boolean isDark) {
