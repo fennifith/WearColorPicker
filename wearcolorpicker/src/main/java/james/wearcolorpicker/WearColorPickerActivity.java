@@ -130,11 +130,11 @@ public class WearColorPickerActivity extends Activity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                color = Color.parseColor(editText.getText().toString());
-                actionDrawer.setBackgroundColor(color);
-                red.setProgress(Color.red(color));
-                blue.setProgress(Color.blue(color));
-                green.setProgress(Color.green(color));
+                try {
+                    color = Color.parseColor(editText.getText().toString());
+                    setColor(color, true);
+                } catch (IllegalArgumentException ignored) {
+                }
             }
 
             @Override
@@ -155,7 +155,11 @@ public class WearColorPickerActivity extends Activity {
     }
 
     private void setColor(@ColorInt int color) {
-        editText.setText(String.format("#%06X", 0xFFFFFF & color));
+        setColor(color, false);
+    }
+
+    private void setColor(@ColorInt int color, boolean isEditText) {
+        if (!isEditText) editText.setText(String.format("#%06X", 0xFFFFFF & color));
         actionDrawer.setBackgroundColor(color);
         drawerLayout.setBackgroundColor(ColorUtils.darkColor(color));
         red.setProgress(Color.red(color));
