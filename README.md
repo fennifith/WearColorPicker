@@ -1,6 +1,7 @@
 WearColorPicker is lightweight color picker library for Android Wear.
 
 ## Screenshots
+
 |Square Watch|Round Watch|
 |--------|--------|
 |![img](https://theandroidmaster.github.io/images/screenshots/WearColorPicker-Square.png)|![img](https://theandroidmaster.github.io/images/screenshots/WearColorPicker-Round.png)|
